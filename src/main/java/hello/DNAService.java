@@ -15,7 +15,7 @@ public class DNAService {
 	private char[][] transformDNAIntoSequence(DNA dna){
 		int dimension = dna.getDna().length;
 		char[][] sequence = new char[dimension][dimension];
-		
+		System.out.println("DNA Sequence");
 		for(int i=0; i<dna.getDna().length; i++ ) {
 			String row = dna.getDna()[i];
 			char[] rowSequence = row.toCharArray();
