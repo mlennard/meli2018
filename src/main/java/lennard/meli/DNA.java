@@ -1,4 +1,4 @@
-package hello;
+package lennard.meli;
 
 public class DNA {
 	

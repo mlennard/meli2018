@@ -1,4 +1,4 @@
-package hello;
+package lennard.meli;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,10 +16,12 @@ public class MutantController {
 	
     @RequestMapping(method=RequestMethod.POST, value="/mutant", consumes="application/json", produces="application/json")
     public ResponseEntity<Boolean> mutant(@RequestBody DNA input) {
-    	if(dnaService.isMutant(input)) {
+    	
+    	if(dnaService.isMutant(input.getDna())) {
     		return ResponseEntity.ok(Boolean.TRUE);
     	}else {
     		return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     	}	
+    
     }
 }

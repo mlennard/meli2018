@@ -1,25 +1,26 @@
-package hello;
+package lennard.meli;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class DNAService {
 	
-	public Boolean isMutant(DNA dna) {
-		//Trasnform DNA into char[][]
+	public boolean isMutant(String[] dna) {
+		//Transform DNA into char[][]
 		char[][] seq = transformDNAIntoSequence(dna);
 		
 		return checkDNA(seq);
 	}
 	
-	private char[][] transformDNAIntoSequence(DNA dna){
-		int dimension = dna.getDna().length;
-		char[][] sequence = new char[dimension][dimension];
-		System.out.println("DNA Sequence");
-		for(int i=0; i<dna.getDna().length; i++ ) {
-			String row = dna.getDna()[i];
+	private char[][] transformDNAIntoSequence(String[] dna) throws MalFormedDNAException{
+		int length = dna.length;
+		char[][] sequence = new char[length][length];
+		for(int i=0; i< dna.length; i++ ) {
+			String row = dna[i];
 			char[] rowSequence = row.toCharArray();
-			System.out.println(rowSequence);
+			if(length != rowSequence.length) {
+				throw new MalFormedDNAException(String.format("Error en la cadena %s (position %d), se espera que tenga %d caracteres", row, i, length));
+			}
 			for (int j = 0; j < rowSequence.length; j++) {
 				sequence[i][j] = rowSequence[j];
 			}
@@ -27,7 +28,6 @@ public class DNAService {
 		
 		return sequence;
 	}
-	
 	
 	private boolean checkDNA(char[][] sequence) {
 	    final int height = sequence.length;
