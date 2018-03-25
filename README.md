@@ -1,8 +1,11 @@
 # Code Challenge Martin Lennard - Mercado Libre 2018
 ## Instrucciones de funcionamiento
 1- Descargar el código fuente de mi [Github](https://github.com/mlennard/meli2018/)
+
 2- Desde un IDE importar como proyecto Maven lo descargado en el punto 1.
+
 3- Con Maven o Gradle ejecutar el goal 'install'
+
 4- Con cualquier cliente REST (Postman, Crest, cualquier extensión de tipo rest client de Google Chrome) hacer un POST a la URL http://localhost:8080/mutant indicando el Content-Type:application/json y en el cuerpo del request incluir la cadena ADN de la siguiente manera:
 > { "dna":["CACAGAT","TCGCGCA","GAXCTXT","ATTACGA","TGTCACT","CACGTAA","AGGXGCG"] }
 
